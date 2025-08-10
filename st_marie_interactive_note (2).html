@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy St. Marie Day! 🌸</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;600&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #000000 0%, #000000 30%, #1a1a2e 45%, #533483 60%, #f48fb1 75%, #f8bbd9 85%, #ffeef0 100%) !important;
+      font-family: 'Inter', system-ui, Arial;
+      color: #ffffff;
+      overflow-x: hidden;
+      position: relative;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Floating hearts background - only on desktop */
+    @media (min-width: 769px) {
+      body::before {
+        content: '🌸 🌺 🌹 🌷 🌸 🌺 🌹 🌷';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        font-size: 24px;
+        opacity: 0.1;
+        animation: float 20s infinite linear;
+        pointer-events: none;
+        z-index: 1;
+      }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(-100px) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+
+    section {
+      padding: 80px 20px;
+      text-align: center;
+      max-width: 1000px;
+      margin: auto;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #opening {
+      min-height: 100vh;
+    }
+
+    #flowers-section {
+      min-height: 60vh;
+      padding: 20px;
+    }
+
+    #message {
+      min-height: 50vh;
+      padding: 20px;
+      margin-top: -60px; /* move section down so title doesn't touch stem */
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5rem;
+      color: #ff69b4;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideInUp 1.5s ease forwards;
+    }
+
+    p {
+      font-size: 1.4rem;
+      line-height: 1.8;
+      color: #ffffff;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideInUp 1.5s ease forwards;
+      animation-delay: 0.3s;
+    }
+
+    @keyframes slideInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Scroll cue with bouncing animation */
+    .scroll-cue {
+      font-size: 1.2rem;
+      margin-top: 50px;
+      color: #e91e63;
+      font-weight: 600;
+      opacity: 0;
+      animation: bounceIn 2s ease forwards;
+      animation-delay: 1s;
+      position: relative;
+    }
+
+    .scroll-cue::before {
+      content: '💕';
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 10px;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes bounceIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.3) translateY(50px);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.05) translateY(-10px);
+      }
+      70% {
+        transform: scale(0.9) translateY(0);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    /* Flowers section with hand-over animation */
+    .flowers-container {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      margin: 50px 0;
+      opacity: 0;
+      transform: scale(0.3) translateX(-200px);
+      animation: handOverFlowers 3s ease forwards;
+      animation-delay: 0.5s;
+    }
+
+    @keyframes handOverFlowers {
+      0% {
+        opacity: 0;
+        transform: scale(0.3) translateX(-200px);
+      }
+      30% {
+        opacity: 1;
+        transform: scale(0.8) translateX(-50px);
+      }
+      60% {
+        transform: scale(1.1) translateX(50px);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateX(0);
+      }
+    }
+
+    .flowers {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .flower-bouquet {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      background: #f8f9fa;
+      border-radius: 50%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .flower-bouquet::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 95%;
+      height: 95%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="flowerGrad"><stop offset="0%" stop-color="%23ff69b4"/><stop offset="50%" stop-color="%23ff1493"/><stop offset="100%" stop-color="%23c71585"/></radialGradient></defs><circle cx="50" cy="50" r="45" fill="url(%23flowerGrad)"/><circle cx="30" cy="30" r="15" fill="%23ff69b4"/><circle cx="70" cy="30" r="15" fill="%23ff69b4"/><circle cx="30" cy="70" r="15" fill="%23ff69b4"/><circle cx="70" cy="70" r="15" fill="%23ff69b4"/><circle cx="50" cy="20" r="12" fill="%23ff1493"/><circle cx="50" cy="80" r="12" fill="%23ff1493"/><circle cx="20" cy="50" r="12" fill="%23ff1493"/><circle cx="80" cy="50" r="12" fill="%23ff1493"/></svg>') center/contain no-repeat;
+      transform: translate(-50%, -50%);
+      animation: rotate 20s linear infinite;
+    }
+
+    @keyframes rotate {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .flower-stem {
+      position: absolute;
+      bottom: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 100px;
+      background: linear-gradient(to bottom, #228b22, #32cd32);
+      border-radius: 4px;
+    }
+
+    /* removed pot/cap under the stem per request */
+
+    /* Message section - NOW VISIBLE BY DEFAULT */
+    .message-section {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 2s ease;
+      position: relative;
+    }
+
+    .message-section h1 {
+      font-size: 3rem;
+      color: #ff69b4;
+      margin-bottom: 30px;
+      opacity: 1;
+      transform: translateY(0);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    /* Confetti around the message */
+    .confetti {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #ff69b4;
+      border-radius: 50%;
+      animation: confettiFall 3s linear infinite;
+    }
+
+    .confetti:nth-child(2n) {
+      background: #ffd700;
+      width: 6px;
+      height: 6px;
+    }
+
+    .confetti:nth-child(3n) {
+      background: #87ceeb;
+      width: 10px;
+      height: 10px;
+    }
+
+    .confetti:nth-child(4n) {
+      background: #98fb98;
+      width: 7px;
+      height: 7px;
+    }
+
+    @keyframes confettiFall {
+      0% {
+        opacity: 1;
+        transform: translateY(-100px) rotate(0deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(100px) rotate(360deg);
+      }
+    }
+
+    .message-section p {
+      font-size: 1.3rem;
+      color: #ffffff;
+      margin-bottom: 20px;
+      font-weight: 400;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Side note with special animation */
+    .side-note {
+      margin-top: 40px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.5rem;
+      color: #e91e63;
+      opacity: 0;
+      transform: scale(0.8) rotate(-5deg);
+      transition: all 2s ease;
+      position: relative;
+      text-align: center;
+    }
+
+    .side-note.visible {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+
+    .side-note::before {
+      content: '💝';
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 10px;
+      animation: heartBeat 1.5s ease-in-out infinite;
+    }
+
+    .signature {
+      margin-top: 20px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.8rem;
+      color: #c2185b;
+      font-weight: bold;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 2s ease;
+      position: relative;
+    }
+
+    .signature.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .signature::before {
+      content: '— ';
+      font-size: 1.5rem;
+      color: #e91e63;
+    }
+
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+
+    /* Sparkles effect */
+    .sparkle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: #ffd700;
+      border-radius: 50%;
+      animation: sparkle 2s linear infinite;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    @keyframes sparkle {
+      0% { opacity: 0; transform: scale(0) rotate(0deg); }
+      50% { opacity: 1; transform: scale(1) rotate(180deg); }
+      100% { opacity: 0; transform: scale(0) rotate(360deg); }
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      body {
+        background: linear-gradient(135deg, #000000 0%, #000000 30%, #1a1a2e 45%, #533483 60%, #f48fb1 75%, #f8bbd9 85%, #ffeef0 100%);
+      }
+      
+      h1 { font-size: 2.5rem; }
+      p { font-size: 1.2rem; }
+      .flower-bouquet { width: 250px; height: 250px; }
+      .message-section h1 { font-size: 2.2rem; }
+      
+      #opening {
+        min-height: 100vh;
+        padding: 40px 15px;
+      }
+      
+      #flowers-section {
+        min-height: 50vh;
+        padding: 15px;
+      }
+      
+      #message {
+        min-height: 40vh;
+        padding: 15px;
+        margin-top: -30px; /* a bit lower on mobile too */
+      }
+      
+      .message-section h1 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+      }
+      
+      .message-section p {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+      }
+      
+      .side-note {
+        font-size: 1.3rem;
+        margin-top: 30px;
+      }
+      
+      .signature {
+        font-size: 1.5rem;
+        margin-top: 15px;
+      }
+      
+      .scroll-cue {
+        font-size: 1rem;
+        margin-top: 30px;
+      }
+      
+      .flowers-container {
+        height: 300px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        background: linear-gradient(135deg, #000000 0%, #000000 30%, #1a1a2e 45%, #533483 60%, #f48fb1 75%, #f8bbd9 85%, #ffeef0 100%);
+      }
+      
+      h1 { font-size: 2rem; }
+      p { font-size: 1rem; }
+      
+      .message-section h1 {
+        font-size: 1.5rem;
+      }
+      
+      .message-section p {
+        font-size: 1rem;
+      }
+      
+      .side-note {
+        font-size: 1.1rem;
+      }
+      
+      .signature {
+        font-size: 1.3rem;
+      }
+      
+      .flower-bouquet {
+        width: 200px;
+        height: 200px;
+      }
+      
+      .flowers-container {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section id="opening">
+    <h1>On this special day,</h1>
+    <p>I wanted to wish someone special</p>
+    <div class="scroll-cue">Scroll down to see something<br>🎊</div>
+  </section>
+
+  <section id="flowers-section">
+    <div class="flowers-container">
+      <div class="flowers">
+        <div class="flower-bouquet">
+          <div class="flower-stem"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="message" class="message-section">
+    <h1>🌸 A Happy St. Marie Day! 🌸</h1>
+    <p>I hope she always keeps you healthy and safe.</p>
+    <p>Have a wonderful day filled with joy and blessings.</p>
+    <div id="sideNote" class="side-note">often thinking about you!</div>
+    <div id="signature" class="signature">Gilbert</div>
+  </section>
+
+  <script>
+    // Create sparkles
+    function createSparkles() {
+      const sparkles = document.querySelectorAll('.sparkle');
+      sparkles.forEach(sparkle => {
+        sparkle.style.left = Math.random() * 100 + '%';
+        sparkle.style.top = Math.random() * 100 + '%';
+        sparkle.style.animationDelay = Math.random() * 2 + 's';
+      });
+    }
+
+    // Add sparkles to the page
+    for (let i = 0; i < 20; i++) {
+      const sparkle = document.createElement('div');
+      sparkle.className = 'sparkle';
+      sparkle.style.left = Math.random() * 100 + '%';
+      sparkle.style.top = Math.random() * 100 + '%';
+      sparkle.style.animationDelay = Math.random() * 2 + 's';
+      document.body.appendChild(sparkle);
+    }
+
+    // Show side note and signature after flowers animation
+    setTimeout(() => {
+      const sideNote = document.getElementById('sideNote');
+      const signature = document.getElementById('signature');
+      if (sideNote) {
+        sideNote.classList.add('visible');
+      }
+      setTimeout(() => {
+        if (signature) {
+          signature.classList.add('visible');
+        }
+      }, 1000);
+    }, 3500);
+
+    // Create confetti around the message
+    function createConfetti() {
+      const messageSection = document.getElementById('message');
+      if (messageSection) {
+        for (let i = 0; i < 30; i++) {
+          const confetti = document.createElement('div');
+          confetti.className = 'confetti';
+          confetti.style.left = Math.random() * 100 + '%';
+          confetti.style.animationDelay = Math.random() * 3 + 's';
+          confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+          messageSection.appendChild(confetti);
+        }
+      }
+    }
+
+    // Initialize confetti
+    setTimeout(createConfetti, 2000);
+
+    // Add some interactive effects
+    document.addEventListener('mousemove', (e) => {
+      const sparkles = document.querySelectorAll('.sparkle');
+      sparkles.forEach((sparkle, index) => {
+        if (index % 5 === 0) {
+          sparkle.style.left = e.clientX + 'px';
+          sparkle.style.top = e.clientY + 'px';
+        }
+      });
+    });
+
+    // Initialize sparkles
+    createSparkles();
+
+    // Console log to confirm the message section exists
+    console.log('Message section:', document.getElementById('message'));
+    console.log('Message section innerHTML:', document.getElementById('message').innerHTML);
+  </script>
+</body>
+</html>
+
